@@ -1,0 +1,447 @@
+:root {
+    --cream: rgb(255, 253, 208);
+    --beige: rgb(245, 245, 220);
+    --forest-green: rgb(34, 139, 34);
+    --gold: rgb(255, 215, 0);
+    --mustard: rgb(255, 219, 88);
+    --burnt-orange: rgb(204, 85, 0);
+    --rust: rgb(183, 65, 14);
+    --turquoise: rgb(64, 224, 208);
+    --teal: rgb(0, 128, 128);
+    --dusty-pink: rgb(216, 191, 216);
+    --brown: rgb(165, 42, 42);
+}
+
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-brand h2 {
+    font-weight: 700;
+}
+
+.nav-item {
+    font-weight: 500;
+}
+
+.dropdown-menu.fade-up {
+    animation: fadeUp 0.3s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pour le bouton primary */
+.btn-primary {
+    font-weight: 600;
+    background-color: var(--brown);
+    border-color: var(--brown);
+}
+
+.btn-primary:hover {
+    font-weight: 600;
+    background-color: var(--rust);
+    border-color: var(--rust);
+}
+
+#btn-navbar {
+    border-radius: 0;
+}
+
+/* Carousel styles */
+.header-carousel .position-relative {
+    height: 80vh;
+    min-height: 500px;
+}
+
+.header-carousel .img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.animated.slideInDown {
+    animation: slideInDown 1s ease;
+}
+
+.animated.slideInLeft {
+    animation: slideInLeft 1s ease;
+}
+
+.animated.slideInRight {
+    animation: slideInRight 1s ease;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Content space below carousel */
+.content {
+    padding: 40px 0;
+}
+
+.text-mustard {
+    color: var(--mustard) !important;
+}
+
+.text-brown {
+    color: var(--brown);
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--brown);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--brown);
+    opacity: 0.6;
+    transform: translateY(-3px);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    margin: 0 20px;
+    position: relative;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+    height: 2px;
+    background-color: var(--brown);
+    flex-grow: 1;
+    max-width: 100px;
+}
+
+/* Styles pour la section contact */
+.contact-section {
+    margin: 10px 0;
+}
+
+.contact-image {
+    overflow: hidden;
+}
+
+.object-fit-cover {
+    object-fit:fill;
+}
+
+.form-floating label {
+    color: #6c757d;
+}
+
+.form-control:focus {
+    border-color: var(--brown);
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 991.98px) {
+    .contact-image {
+        height: 300px;
+    }
+}
+
+/* Styles pour les champs obligatoires */
+.required-field:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+.required-field:focus + label {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.form-floating label .text-danger {
+    font-weight: bold;
+}
+
+/* Animation pour attirer l'attention sur les champs obligatoires lors du focus */
+@keyframes requiredPulse {
+    0% { box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); }
+    50% { box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.4); }
+    100% { box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); }
+}
+
+.required-field:focus {
+    animation: requiredPulse 2s infinite;
+}
+
+/* Styles pour la section localisation et contact */
+.map-container {
+    width: 100%;
+    height: 500px;
+}
+
+.contact-info-container {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-item .icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--brown);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--brown);
+    transform: translateY(-3px);
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 991.98px) {
+    .map-container {
+        height: 300px;
+    }
+    
+    .contact-info-container {
+        height: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+/* Style pour les horaires */
+.hours-grid {
+    font-size: 0.95rem;
+}
+
+.hours-grid .day {
+    font-weight: 500;
+    display: inline-block;
+    width: 85px;
+}
+
+/* Pour les écrans plus petits */
+@media (max-width: 767px) {
+    .hours-grid .day {
+        width: 80px;
+    }
+}
+
+
+/* Styles pour la section témoignages */
+.testimonial-section {
+    background-color: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-carousel-container {
+    padding: 30px 0;
+}
+
+.testimonial-item {
+    padding: 20px 10px;
+}
+
+.testimonial-content {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.testimonial-text {
+    position: relative;
+    font-style: italic;
+}
+
+.author-img img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.rating {
+    font-size: 14px;
+}
+
+
+.testimonial-nav {
+    position: static; /* Remplacer 'absolute' par 'static' */
+    width: auto;
+    top: auto;
+    transform: none;
+    pointer-events: none;
+}
+
+.testimonial-prev,
+.testimonial-next {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--brown);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.testimonial-prev {
+    left: -20px; /* Ajuster cette valeur selon vos besoins */
+}
+
+.testimonial-next {
+    right: -20px; /* Ajuster cette valeur selon vos besoins */
+}
+
+.testimonial-prev:hover,
+.testimonial-next:hover {
+    background: var(--primary-darker);
+    transform: scale(1.1);
+}
+
+/* Style pour carousel avec éléments adjacents partiellement visibles */
+.testimonial-carousel .owl-stage-outer {
+    overflow: visible;
+}
+
+.testimonial-carousel .owl-item {
+    opacity: 0.4;
+    transform: scale(0.85);
+    transition: all 0.4s ease;
+}
+
+.testimonial-carousel .owl-item.active.center {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 3;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .testimonial-nav {
+        position: static;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        transform: none;
+    }
+    
+    .testimonial-prev,
+    .testimonial-next {
+        display: none;
+    }
+}
+
+/* Style supplémentaire pour attacher les flèches à l'élément central */
+.testimonial-carousel .center .testimonial-content {
+    position: relative;
+}
+
+/* Positionnement des flèches sur l'élément central uniquement */
+.owl-item.center .testimonial-prev,
+.owl-item.center .testimonial-next {
+    opacity: 1;
+    visibility: visible;
+}
+
+.owl-item:not(.center) .testimonial-prev,
+.owl-item:not(.center) .testimonial-next {
+    opacity: 0;
+    visibility: hidden;
+}

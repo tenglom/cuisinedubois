@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuisine du Bois</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome pour l'icône de flèche -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .navbar-brand h2 {
+            font-weight: 700;
+        }
+        
+        .nav-item {
+            font-weight: 500;
+        }
+        
+        .dropdown-menu.fade-up {
+            animation: fadeUp 0.3s ease;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Pour le bouton primary */
+        .btn-primary {
+            font-weight: 600;
+        }
+        
+        /* Hero section styles */
+        .hero-carousel {
+            position: relative;
+            height: 700px;
+            overflow: hidden;
+        }
+        
+        .hero-carousel .owl-carousel,
+        .hero-carousel .owl-stage-outer,
+        .hero-carousel .owl-stage,
+        .hero-carousel .owl-item,
+        .hero-carousel .item {
+            height: 100%;
+        }
+        
+        .hero-carousel .img-fluid {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            z-index: 2;
+            padding: 0 15px;
+        }
+        
+        .hero-text-container {
+            max-width: 600px;
+            margin-left: 10%;
+            background-color: rgba(255, 255, 255,0);
+            padding: 40px;
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 767px) {
+            .hero-text-container {
+                margin-left: auto;
+                margin-right: auto;
+                padding: 20px;
+            }
+            
+            .hero-carousel {
+                height: 500px;
+            }
+        }
+        
+        .animated.slideInDown {
+            animation: slideInDown 1s ease;
+        }
+        
+        .animated.slideInLeft {
+            animation: slideInLeft 1s ease;
+        }
+        
+        .animated.slideInRight {
+            animation: slideInRight 1s ease;
+        }
+        
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Custom navigation for carousel */
+        .custom-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 10%;
+            z-index: 2;
+            display: flex;
+            gap: 10px;
+        }
+        
+        @media (max-width: 767px) {
+            .custom-nav {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        .custom-nav button {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-nav button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Content space below hero */
+        .content {
+            padding: 60px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary">Cuisine du Bois</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Accueil</a>
+                <a href="service.html" class="nav-item nav-link">Services</a>
+                <a href="project.html" class="nav-item nav-link">Réalisations</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="feature.html" class="dropdown-item">Feature</a>
+                        <a href="quote.html" class="dropdown-item">Free Quote</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">A propos</a>
+            </div>
+            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Obtenir un devis gratuit !<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    
+    <!-- Hero Carousel Start -->
+    <div class="container-fluid p-0">
+        <div class="hero-carousel">
+            <!-- Overlay pour assombrir légèrement les images -->
+            <div class="overlay"></div>
+            
+            <!-- Contenu textuel superposé à gauche -->
+            <div class="hero-content">
+                <div class="hero-text-container">
+                    <h5 class="text-black text-uppercase mb-3 animated slideInDown">Bienvenue chez Cuisine du Bois</h5>
+                    <h1 class="text-black animated slideInDown mb-4">Ébénisterie & Menuiserie de Qualité</h1>
+                    <p class="text-black mb-4 pb-2 animated slideInDown">Nous créons des espaces sur mesure qui vous ressemblent, avec des matériaux nobles et un savoir-faire artisanal.</p>
+                    <div class="d-flex animated slideInLeft">
+                        <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">En savoir plus</a>
+                        <a href="" class="btn btn-light py-md-3 px-md-5">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation personnalisée -->
+            <div class="custom-nav">
+                <button class="custom-prev"><i class="fa fa-angle-left"></i></button>
+                <button class="custom-next"><i class="fa fa-angle-right"></i></button>
+            </div>
+            
+            <!-- Carousel d'images pleine largeur -->
+            <div class="owl-carousel hero-owl-carousel">
+                <div class="item">
+                    <img class="img-fluid" src="img/carousel-1.jpg" alt="Cuisine sur mesure">
+                </div>
+                <div class="item">
+                    <img class="img-fluid" src="img/carousel-2.jpg" alt="Aménagement intérieur">
+                </div>
+                <div class="item">
+                    <img class="img-fluid" src="img/carousel-3.jpg" alt="Cuisine moderne">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Carousel End -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="container">
+            <h2 class="text-center mb-5">Nos Services</h2>
+            <!-- Contenu principal -->
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fa fa-kitchen-set fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">Cuisines sur mesure</h4>
+                            <p class="card-text">Conception et réalisation de cuisines personnalisées adaptées à votre espace et à vos besoins.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fa fa-couch fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">Mobilier personnalisé</h4>
+                            <p class="card-text">Création de meubles uniques selon vos goûts et les spécificités de votre intérieur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fa fa-door-open fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">Aménagements intérieurs</h4>
+                            <p class="card-text">Solutions complètes pour optimiser et embellir vos espaces de vie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        $(document).ready(function() {
+            // Highlight active nav item
+            $('.nav-link').on('click', function() {
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            
+            // Initialize Owl Carousel
+            var heroCarousel = $(".hero-owl-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                nav: false,
+                dots: false,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                smartSpeed: 1000,
+                animateIn: 'fadeIn',
+                animateOut: 'fadeOut'
+            });
+            
+            // Custom navigation
+            $('.custom-prev').click(function() {
+                heroCarousel.trigger('prev.owl.carousel');
+            });
+            
+            $('.custom-next').click(function() {
+                heroCarousel.trigger('next.owl.carousel');
+            });
+        });
+    </script>
+</body>
+</html>
